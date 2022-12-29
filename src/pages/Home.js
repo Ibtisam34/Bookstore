@@ -1,4 +1,4 @@
-import Books from '../components/BookList';
+import Books from '../components/Booklist';
 
 function Home() {
   return (
