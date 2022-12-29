@@ -25,9 +25,9 @@ const CreateBook = () => {
   };
   return (
     <>
-      <h2 className="add-book">Add new Book</h2>
+      <h4 className="add--book">Add new Book</h4>
       <form
-        className="form"
+        className="form--control"
         onSubmit={submitBookToStore}
       >
         <input

@@ -8,10 +8,10 @@ const Book = ({
   const dispatch = useDispatch();
   return (
     <div id={id}>
-      <h3>{category}</h3>
+      <h2>{category}</h2>
       <h3 className="book-title">{title}</h3>
       <p className="book-author">{author}</p>
-      <button type="button" onClick={(e) => { dispatch(remove(e.target.parentNode.id)); }}>Remove</button>
+      <button type="button" className="btn-remove" onClick={(e) => { dispatch(remove(e.target.parentNode.id)); }}>Remove</button>
     </div>
   );
 };
