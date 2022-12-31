@@ -54,7 +54,6 @@ body {
   margin-top: 1rem;
 }
 
-
 h2 {
   color: tomato;
   text-align: center;
@@ -101,34 +100,35 @@ h2 {
 .h2-title {
   margin-right: 90%;
   margin-top: 0.188rem;
-  font-size: 1.300rem;
+  color: #121212;
+  font-size: 1.3rem;
   font-weight: bold;
   letter-spacing: -0.2px;
-  color: #121212;
 }
 
 .author {
   margin: 0.25rem 0 0;
-  font-size: 0.980rem;
+  font-size: 0.98rem;
   font-weight: 400;
-  color: #121212;
+  color: #4386bf;
   display: block;
 }
 
-.button,.button-active {
+.button,
+.button-active {
   background-color: transparent;
   border: none;
   color: #0290ff;
   font-size: 0.875rem;
-  padding-left:0.4%;
+  padding-left: 0.5%;
   font-weight: 300;
   align-items: center;
   cursor: pointer;
-  border-right: 1px solid #0290ff; 
+  border-right: 1px solid #0290ff;
 }
 
 .button-active {
-  padding-right: 1%;;
+  padding-right: 1%;
 }
 
 .btn-edit {
@@ -189,7 +189,7 @@ hr {
   color: #fff;
 }
 
-.progress { 
+.progress {
   display: flex;
 }
 
@@ -243,5 +243,3 @@ hr {
   margin-top: 0.75rem;
   padding: 0.5rem 1.188rem 0.438rem 1.375rem;
 }
-
-
