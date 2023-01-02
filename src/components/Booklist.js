@@ -1,14 +1,27 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
-import Inputform from './Form';
+import CreateBook from './create';
 
-const Booklist = () => (
-  <div>
-    <h2>My Book List</h2>
-    <Book author="Riyana" title="Life is short" />
-    <Book author="Pius" title="don't leave" />
-    <Inputform />
-  </div>
-);
+const Books = () => {
+  const books = useSelector((state) => state.booksReducer);
 
-export default Booklist;
+  return (
+    <div className="book-list">
+      <ul className="book">
+        {books.map((book) => (
+          <Book
+            key={book.id}
+            id={book.id}
+            title={book.title}
+            author={book.author}
+            category={book.category}
+          />
+        ))}
+      </ul>
+      <hr />
+      <CreateBook />
+    </div>
+  );
+};
+
+export default Books;

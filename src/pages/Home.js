@@ -1,18 +1,15 @@
-import Form from '../components/Form';
-import Booklist from '../components/Booklist';
+import Books from '../components/Booklist';
 
 function Home() {
   return (
     <>
       <div className="home--container">
         <div>
-          <Booklist />
-        </div>
-        <div>
-          <Form />
+          <Books />
         </div>
       </div>
     </>
+
   );
 }
 

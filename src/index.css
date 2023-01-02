@@ -8,48 +8,26 @@
 
 body {
   background-color: rgb(223, 223, 223);
-  display: flex;
-  place-content: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 2rem;
   height: 100vh;
   width: 100vw;
 }
 
-.header {
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  margin: 0;
-  padding: 0;
-  padding-left: 2rem;
-  padding-right: 2rem;
-}
-
 .header--title {
   font-size: 1.9rem;
   font-weight: bold;
   color: #0290ff;
-  margin: 0;
+  margin-right: 5%;
   padding: 0;
-}
-
-.sub--header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
+  text-align: right;
 }
 
 .nav-ul {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .nav-li {
@@ -61,7 +39,7 @@ body {
   font-size: 1rem;
   font-weight: lighter;
   color: black;
-  margin: 0;
+  margin-left: 50px;
   padding: 0;
   text-decoration: none;
 }
@@ -74,7 +52,50 @@ body {
   margin-top: 1rem;
 }
 
-/* Book */
+.add--book {
+  margin-left: 35%;
+  color: rgba(0, 0, 0, 0.582);
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 80%;
+  gap: 0.3rem;
+  margin-left: 20%;
+}
+
+.form--control {
+  margin: 2% 2%;
+  display: grid;
+  grid-template-columns: 24% 24% 26% 20%;
+  gap: 2%;
+}
+
+input {
+  margin-bottom: 20%;
+  color: blue;
+  text-align: center;
+}
+
+input,
+select,
+.submit {
+  margin-left: 3%;
+  border-radius: 50px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+select {
+  margin-left: 2rem;
+  margin-bottom: 20%;
+}
+
+.book-list {
+  background-color: rgb(49, 90, 90);
+}
 
 .book-title {
   margin: 0;
@@ -86,14 +107,14 @@ body {
   font-style: normal;
   line-height: normal;
   letter-spacing: -0.2px;
-  color: #121212;
+  color: rgba(0, 0, 0, 0.582);
 }
 
 .book-author {
-  color: #4386bf;
+  color: gray;
   font-family: 'Roboto Slab', sans-serif;
   margin-bottom: 1rem;
-  font-size: 0.875rem;
+  font-size: 20px;
   font-weight: 300;
   font-stretch: normal;
   font-style: normal;
@@ -101,22 +122,43 @@ body {
   letter-spacing: normal;
 }
 
-/* form */
-
-.form-container {
-  margin-bottom: 6rem;
+.book-title,
+.book-author,
+.btn-remove {
+  margin-left: 2%;
 }
 
-.form {
+.book {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  padding-top: 2%;
 }
 
-.form-title {
-  color: slategray;
-  font-weight: bold;
+hr {
+  color: #fafafa;
+  margin: 0 5%;
+}
+
+.submit {
+  padding: 5px 10px;
+  background-color: tomato;
+  color: white;
+  border: none;
+  margin-bottom: 24%;
+}
+
+::placeholder {
+  text-align: center;
+}
+
+.btn-remove {
+  background-color: red;
+  text-align: center;
+  border-radius: 10px;
+  padding-top: 0.3%;
+  padding-bottom: 0.3%;
+  color: white;
+  margin-bottom: 3%;
 }
