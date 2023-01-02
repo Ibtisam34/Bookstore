@@ -30,6 +30,7 @@
 
 🛠 Built With
 ReactJS
+Redux
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
