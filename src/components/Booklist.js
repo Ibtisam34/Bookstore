@@ -13,7 +13,7 @@ const Books = () => {
   return (
     <div className="book-list">
       <ul className="book">
-        {books.map((book) => (
+        {books && books.map((book) => (
           <Book
             key={book.item_id}
             id={book.item_id}
