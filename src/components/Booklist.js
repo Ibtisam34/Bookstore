@@ -3,17 +3,17 @@ import Book from './Book';
 import CreateBook from './create';
 
 const Books = () => {
-  const books = useSelector((state) => state.booksReducer);
+  const books = useSelector((state) => state.books);
 
   return (
     <div className="book-list">
       <ul className="book">
-        {books.map((book) => (
+        {books && books.map((book) => (
           <Book
-            key={book.id}
-            id={book.id}
-            title={book.title}
-            author={book.author}
+            key={book.item_id}
+            id={book.item_id}
+            title={book.title.title}
+            author={book.title.author}
             category={book.category}
           />
         ))}
