@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { addBookToAPI } from '../redux/books/books';
 
 const categories = ['Classics', 'Comic Book', 'Detective and Mystery', 'Fantasy'];
 
@@ -22,7 +22,7 @@ const CreateBook = () => {
         },
         category,
       };
-      dispatch(addBook(newBook));
+      dispatch(addBookToAPI(newBook));
       setTitle('');
       setAuthor('');
       setCategory('');
