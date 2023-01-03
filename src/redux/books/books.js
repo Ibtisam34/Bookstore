@@ -31,3 +31,32 @@ export const fetchBooksSuccess = (payload) => ({
   type: FETCH_SUCCESS,
   payload,
 });
+export const fetchBooks = () => async (dispatch) => {
+  const response = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WsQJJJQ05Rg6MbRzcWLl/books');
+  const bookData = await response.json();
+  const books = Object.entries(bookData).map(([key, value]) => ({
+    item_id: key,
+    title: {
+      title: value[0].title.title,
+      author: value[0].title.author,
+    },
+    category: value[0].category,
+  }));
+  dispatch(fetchBooksSuccess(books));
+};
+export const removeBook = (id) => async (dispatch) => {
+  dispatch(remove(id));
+  await fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WsQJJJQ05Rg6MbRzcWLl/books/${id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({ item_id: id }),
+    headers: { 'Content-type': 'application/JSON' },
+  });
+};
+export const addBookToAPI = (payload) => async (dispatch) => {
+  dispatch(addBook(payload));
+  await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WsQJJJQ05Rg6MbRzcWLl/books', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+    headers: { 'Content-type': 'application/JSON' },
+  });
+};
