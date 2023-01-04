@@ -59,14 +59,16 @@ const booksSlice = createSlice({
   },
   extraReducers: {
     [fetchBooks.fulfilled]: (state, { payload }) => {
-      state.books = payload;
-      state.status = 'success';
+      const newState = { ...state };
+      newState.books = payload;
+      newState.status = 'success';
+      return newState;
     },
-
     [addBook]: (state, { payload }) => {
-      state.books = [...state.books, payload];
+      const newState = { ...state };
+      newState.books = [...state.books, payload];
+      return newState;
     },
-
     [removeOneBook]: (state, { payload }) => {
       state.books = state.books.filter((book) => book.item_id !== payload);
     },
