@@ -1,44 +1,25 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-const ADD_BOOK = 'bookStore/books/ADD_BOOK';
-const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
-const FETCH_SUCCESS = 'bookStore/books/FETCH_SUCCESS';
-
-const initialState = [];
-
-const booksReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case REMOVE_BOOK:
-      return (state.filter((book) => book.item_id !== action.id));
-    case ADD_BOOK:
-      return ([...state, action.payload]);
-    case FETCH_SUCCESS:
-      return ([...action.payload]);
-    default:
-      return state;
-  }
-};
-
-export default booksReducer;
-
-export const remove = (id) => ({
-  type: REMOVE_BOOK,
-  id,
-});
-export const addBook = (payload) => ({
-  type: ADD_BOOK,
+export const addBook = createAction('books/addBook', (payload) => ({
   payload,
-});
-export const fetchBooksSuccess = (payload) => ({
-  type: FETCH_SUCCESS,
+}));
+
+export const removeOneBook = createAction('books/removeOneBook', (payload) => ({
   payload,
-});
+}));
+
 export const fetchBooks = createAsyncThunk(
   'books/fetchBooks',
   async () => {
     const response = await
     fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WsQJJJQ05Rg6MbRzcWLl/books');
-    return response.json();
+    const data = await response.text();
+    let booksData = Object.entries(JSON.parse(data));
+    booksData = booksData.map(([itemID, value]) => {
+      const [book] = value;
+      return { ...book, item_id: itemID };
+    });
+    return booksData;
   },
 );
 
@@ -49,18 +30,47 @@ export const removeBook = createAsyncThunk(
     fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WsQJJJQ05Rg6MbRzcWLl/books/${id}`, {
       method: 'DELETE',
     });
-    return response.json();
+    const data = await response.text();
+    return data;
   },
 );
 
 export const addBookToAPI = createAsyncThunk(
   'books/addBookToApi',
   async (book) => {
-    const response = await
-    fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WsQJJJQ05Rg6MbRzcWLl/books', {
+    const response = await fetch('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/WsQJJJQ05Rg6MbRzcWLl/books', {
       method: 'POST',
       body: JSON.stringify(book),
+      headers: {
+        'Content-type': 'application/json; Charset=UTF-8',
+      },
     });
-    return response.json();
+    const data = await response.text();
+
+    return data;
   },
 );
+
+const booksSlice = createSlice({
+  name: 'books',
+  initialState: {
+    books: [],
+    status: null,
+  },
+  extraReducers: {
+    [fetchBooks.fulfilled]: (state, { payload }) => {
+      state.books = payload;
+      state.status = 'success';
+    },
+
+    [addBook]: (state, { payload }) => {
+      state.books = [...state.books, payload];
+    },
+
+    [removeOneBook]: (state, { payload }) => {
+      state.books = state.books.filter((book) => book.item_id !== payload);
+    },
+  },
+});
+
+export default booksSlice.reducer;
