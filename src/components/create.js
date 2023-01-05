@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { addBook, addBookToAPI } from '../redux/books/books';
 
 const categories = ['Classics', 'Comic Book', 'Detective and Mystery', 'Fantasy'];
 
@@ -16,18 +16,20 @@ const CreateBook = () => {
     if (title && category && author) {
       const newBook = {
         item_id: uuidv4(),
-        title: {
-          title,
-          author,
-        },
+        title,
+        author,
         category,
       };
-      dispatch(addBook(newBook));
+
+      dispatch(addBookToAPI(newBook)).then(() => {
+        dispatch(addBook(newBook));
+      });
       setTitle('');
       setAuthor('');
       setCategory('');
     }
   };
+
   return (
     <div className="create-book">
       <h2 className="add-book">Add new Book</h2>

@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/Microverse-blueviolet)
 <!-- TABLE OF CONTENTS -->
 # :green_book: Table of Contents
 - [:book: About the Project](#about-project)
@@ -23,8 +24,7 @@
 
 # 📖 [BookStore] 
 
-> "Book store" is a website for storing details about book. It allows users to, Display a list of books. Add a book and   Remove a selected book.
-   
+> The Bookstore is a React-Redux application connected to an existing API to create and remove books in a remote server. Users can **Display the list of books**, **Add** and **Remove a selected book**.
 
 **[BookStore]** 
 

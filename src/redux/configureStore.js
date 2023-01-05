@@ -1,15 +1,15 @@
-import { combineReducers } from 'redux';
-import { configureStore } from '@reduxjs/toolkit';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import logger from 'redux-logger';
 import booksReducer from './books/books';
 import categoryReducer from './categories/categories';
 
-const reducer = combineReducers({
+const rootReducer = combineReducers({
   books: booksReducer,
   categories: categoryReducer,
 });
-
 const store = configureStore({
-  reducer,
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
 });
 
 export default store;

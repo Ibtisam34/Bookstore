@@ -1,13 +1,20 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { CircularProgressbar } from 'react-circular-progressbar';
+import { removeOneBook, removeBook } from '../redux/books/books';
 import 'react-circular-progressbar/dist/styles.css';
-import { remove } from '../redux/books/books';
 
 const Book = ({
   title, category, id, author,
 }) => {
   const dispatch = useDispatch();
+
+  const handleRemove = (id) => {
+    dispatch(removeBook(id)).then(() => {
+      dispatch(removeOneBook(id));
+    });
+  };
+
   const percentage = 80;
   return (
     <div className="book-container">
@@ -16,7 +23,7 @@ const Book = ({
         <h2 className="h2-title">{title}</h2>
         <span className="author">{author}</span>
         <button type="button" className="button">Comments</button>
-        <button type="button" className="button-active" onClick={() => { dispatch(remove(id)); }}>Remove</button>
+        <button type="button" className="button-active" onClick={() => { handleRemove(id); }}>Remove</button>
         <button type="button" className="btn-edit">Edit</button>
       </div>
       <div className="progress">
