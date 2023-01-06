@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,400&display=swap');
 
-* {
-  padding: 0;
-  margin: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 body {
-  font-family: "Lora", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: rgb(245, 246, 250);
+  font-family: 'Roboto Slab', serif;
 }
 
 .header--title {
@@ -19,30 +19,32 @@ body {
 
 .sub--header {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
+  margin: 0 2.6rem;
+  padding-left: 6rem;
+}
+
+ul {
+  padding-left: 0;
 }
 
 .nav-ul {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  gap: 1rem;
+  padding-left: 10px;
+  list-style-type: none;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav-li {
-  display: flex;
-  align-items: center;
+  text-decoration: none;
+  font-size: 0.813rem;
 }
 
 .nav-link {
-  font-size: 1rem;
-  font-weight: lighter;
-  color: black;
+  font-size: 0.8rem;
+  color: #121212;
   margin: 0;
-  padding: 0;
+  padding-left: 50%;
   text-decoration: none;
 }
 
@@ -90,50 +92,56 @@ h2 {
 }
 
 .book-container-title {
-  margin-top: 2rem;
-  opacity: 0.9;
+  font-family: "Montserrat", sans-serif;
   font-size: 0.875rem;
-  font-weight: bold;
-  color: #1e1e1e;
+  opacity: 0.5;
 }
 
 .h2-title {
   margin-right: 90%;
   margin-top: 0.188rem;
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.375rem;
+  font-weight: 700;
   letter-spacing: -0.2px;
   color: #121212;
 }
 
 .author {
-  margin: 0.25rem 0 0;
-  font-size: 0.98rem;
-  font-weight: 400;
-  color: #0290ff;
+  font-family: "Roboto Slab", serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: #4386bf;
   display: block;
+  margin-bottom: 3%;
 }
 
 .button,
 .button-active {
+  font-family: "Roboto Slab", serif;
   background-color: transparent;
   border: none;
-  color: #0290ff;
+  color: #6dbaee;
   font-size: 0.875rem;
-  padding-left: 0.4%;
   font-weight: 300;
   align-items: center;
   cursor: pointer;
+  padding-top: 1%;
+  padding-left: 0.09%;
   border-right: 1px solid #0290ff;
 }
 
 .button-active {
-  padding-right: 1%;
+  padding-right: 2%;
+  padding-left: 2%;
 }
 
 .btn-edit {
+  font-family: "Roboto Slab", serif;
+  background-color: transparent;
   border: none;
-  color: #0290ff;
+  color: #6dbaee;
+  font-size: 0.875rem;
+  font-weight: 300;
 }
 
 hr {
@@ -170,6 +178,10 @@ hr {
   background-color: #fff;
 }
 
+::-webkit-input-placeholder {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .submit {
   height: 2.813rem;
   padding: 0.801rem 1.188rem 0.886rem 1.375rem;
@@ -194,6 +206,7 @@ hr {
 }
 
 .circular-progress {
+  color: #0290ff;
   display: flex;
   gap: 1.313rem;
   border-right: 1px solid #c4c4c4;
@@ -202,10 +215,10 @@ hr {
 }
 
 .percent-complete {
+  font-family: "Montserrat", sans-serif;
+  color: #180101;
   height: 2.438rem;
   margin: 0.063rem 5.75rem 0 0.688rem;
-  font-size: 2rem;
-  color: #121212;
 }
 
 .completed {
@@ -217,21 +230,24 @@ hr {
 
 .chapter {
   margin: 2.038rem 0 2.1888rem;
+  font-size: 1em;
+  color: #121212;
 }
 
 .current-chapter-title {
-  font-size: 0.813rem;
+  font-size: 1rem;
   font-weight: 300;
   color: #c4c4c4;
   text-transform: uppercase;
 }
 
 .current-chapter {
-  margin: 0.438rem 0 0.25rem;
-  font-size: 1rem;
+  font-family: "Roboto Slab", serif;
   font-weight: 300;
-  letter-spacing: -0.4px;
   color: #121212;
+  margin: 0.438rem 0 0.25rem;
+  font-size: 0.8em;
+  letter-spacing: -0.4px;
 }
 
 .btn--update {
