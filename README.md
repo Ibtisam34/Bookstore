@@ -36,7 +36,7 @@ Redux
 
 > Add a link to your deployed project.
 
-- [live version]()
+- [live version](https://bookstore13.netlify.app/)
 
 <!-- GETTING STARTED -->
 
